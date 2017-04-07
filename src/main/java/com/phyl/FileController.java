@@ -19,8 +19,6 @@ import java.util.List;
  */
 @Controller
 public class FileController {
-    String filePath = "H://upload//";
-
     @RequestMapping("/")
     public String toIndex() {
         return "upload";
@@ -46,6 +44,7 @@ public class FileController {
     }
 
     private void upload(MultipartFile file) {
+        String filePath = "H://upload//";
         String filename = file.getOriginalFilename();
         File dest = new File(filePath + filename);
         if (!dest.getParentFile().exists()) {
